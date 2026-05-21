@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OQTEX — AI-Powered Ophthalmology Technologies</title>
+  <meta name="description" content="OQTEX is Egypt's leading Med-Tech company specializing in AI-powered ophthalmology technologies and digital healthcare infrastructure across MENA." />
+  <meta name="keywords" content="OQTEX, ophthalmology, AI, Med-Tech, Egypt, MENA, OQfy, OQgen, OQmega, retinal analysis, healthcare" />
+  <meta property="og:title" content="OQTEX — Ophthalmology Meets Intelligence" />
+  <meta property="og:description" content="Building the future of AI-powered eye care infrastructure across Egypt and the MENA region." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/oqtex-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OQTEX — Ophthalmology Meets Intelligence" />
+  <meta name="twitter:description" content="Egypt's leading AI-powered ophthalmology technology company. Building the future of intelligent eye care across MENA." />
+  <meta name="twitter:image" content="images/oqtex-logo.png" />
+  <meta name="theme-color" content="#C97F52" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://oqtex.ai" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/oqtex-icon.png" />
+  <link rel="apple-touch-icon" href="images/oqtex-icon.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgress"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="images/oqtex-logo.png" alt="OQTEX Logo" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#oqmega" class="nav-link">OQmega</a></li>
+        <li><a href="#why" class="nav-link">Why OQTEX</a></li>
+        <li><a href="#vision" class="nav-link">Vision</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#about" class="mobile-link">About</a></li>
+        <li><a href="#products" class="mobile-link">Products</a></li>
+        <li><a href="#oqmega" class="mobile-link">OQmega</a></li>
+        <li><a href="#why" class="mobile-link">Why OQTEX</a></li>
+        <li><a href="#vision" class="mobile-link">Vision</a></li>
+        <li><a href="#contact" class="mobile-link">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section id="hero" class="hero-section">
+    <canvas id="neuralCanvas" class="neural-canvas"></canvas>
+    <div class="hero-particles" id="heroParticles"></div>
+
+    <!-- Retina scan ring effect -->
+    <div class="retina-ring retina-ring-1"></div>
+    <div class="retina-ring retina-ring-2"></div>
+    <div class="retina-ring retina-ring-3"></div>
+    <div class="retina-scan-line"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        <span>Egyptian Med-Tech &nbsp;·&nbsp; AI Ophthalmology</span>
+      </div>
+
+      <h1 class="hero-title reveal-up delay-1">
+        Ophthalmology<br />
+        <span class="gradient-text">Meets Intelligence</span>
+      </h1>
+
+      <p class="hero-sub reveal-up delay-2">
+        Building the future of AI-powered eye care infrastructure<br class="hide-mobile" />
+        across Egypt and the MENA region.
+      </p>
+
+      <div class="hero-cta reveal-up delay-3">
+        <a href="#products" class="btn-primary">
+          <span>Explore OQfy</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#products" class="btn-secondary">
+          <span>Discover OQgen</span>
+          <i class="fas fa-brain"></i>
+        </a>
+      </div>
+
+      <div class="hero-stats reveal-up delay-4">
+        <div class="hero-stat">
+          <span class="stat-num" data-target="12">0</span><span class="stat-unit">+</span>
+          <span class="stat-label">AI Models</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="8">0</span><span class="stat-unit">+</span>
+          <span class="stat-label">Research Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="5">0</span><span class="stat-unit">+</span>
+          <span class="stat-label">Integrations</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="18">0</span><span class="stat-unit"></span>
+          <span class="stat-label">MENA Countries Targeted</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating UI panels -->
+    <div class="hero-panels">
+      <div class="float-panel panel-left reveal-left delay-2">
+        <div class="panel-header">
+          <span class="panel-dot green"></span>
+          <span class="panel-title">OQgen · Retinal Analysis</span>
+        </div>
+        <div class="panel-scan">
+          <div class="scan-circle">
+            <div class="scan-inner"></div>
+            <div class="scan-line-h"></div>
+            <div class="scan-line-v"></div>
+            <div class="scan-corner tl"></div>
+            <div class="scan-corner tr"></div>
+            <div class="scan-corner bl"></div>
+            <div class="scan-corner br"></div>
+          </div>
+        </div>
+        <div class="panel-data">
+          <div class="data-row">
+            <span class="data-label">Confidence</span>
+            <div class="data-bar"><div class="data-fill" style="width:94%"></div></div>
+            <span class="data-val copper">94%</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">DR Detection</span>
+            <div class="data-bar"><div class="data-fill" style="width:88%"></div></div>
+            <span class="data-val green">88%</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Glaucoma Risk</span>
+            <div class="data-bar"><div class="data-fill low" style="width:12%"></div></div>
+            <span class="data-val low">Low</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="float-panel panel-right reveal-right delay-3">
+        <div class="panel-header">
+          <span class="panel-dot copper"></span>
+          <span class="panel-title">OQfy · Patient Queue</span>
+        </div>
+        <div class="panel-queue">
+          <div class="queue-item active">
+            <div class="queue-avatar">AM</div>
+            <div class="queue-info">
+              <span class="queue-name">Ahmed M.</span>
+              <span class="queue-tag">OCT · Pending</span>
+            </div>
+            <span class="queue-time">Now</span>
+          </div>
+          <div class="queue-item">
+            <div class="queue-avatar">SA</div>
+            <div class="queue-info">
+              <span class="queue-name">Sara A.</span>
+              <span class="queue-tag">Fundus · Scheduled</span>
+            </div>
+            <span class="queue-time">+14m</span>
+          </div>
+          <div class="queue-item">
+            <div class="queue-avatar">KH</div>
+            <div class="queue-info">
+              <span class="queue-name">Khaled H.</span>
+              <span class="queue-tag">Visual Field</span>
+            </div>
+            <span class="queue-time">+32m</span>
+          </div>
+        </div>
+        <div class="panel-footer-stat">
+          <i class="fas fa-chart-line"></i> 97% workflow efficiency today
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TRUST / TECH BADGES BAR
+  ============================================================ -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <!-- Set 1 -->
+      <div class="trust-item"><i class="fas fa-brain"></i><span>Deep Learning</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-eye"></i><span>Retinal AI</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-hospital"></i><span>Clinical HIS/EMR</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-cloud"></i><span>Cloud Infrastructure</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-shield-alt"></i><span>Medical-Grade Security</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-globe-africa"></i><span>MENA Expansion</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-microscope"></i><span>OQmega R&amp;D</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-microchip"></i><span>Edge AI Deployment</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-network-wired"></i><span>Computer Vision</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-chart-line"></i><span>Predictive Analytics</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-dna"></i><span>Clinical Validation</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-stethoscope"></i><span>Clinician-Driven Design</span></div>
+      <div class="trust-sep">·</div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="trust-item"><i class="fas fa-brain"></i><span>Deep Learning</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-eye"></i><span>Retinal AI</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-hospital"></i><span>Clinical HIS/EMR</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-cloud"></i><span>Cloud Infrastructure</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-shield-alt"></i><span>Medical-Grade Security</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-globe-africa"></i><span>MENA Expansion</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-microscope"></i><span>OQmega R&amp;D</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-microchip"></i><span>Edge AI Deployment</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-network-wired"></i><span>Computer Vision</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-chart-line"></i><span>Predictive Analytics</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-dna"></i><span>Clinical Validation</span></div>
+      <div class="trust-sep">·</div>
+      <div class="trust-item"><i class="fas fa-stethoscope"></i><span>Clinician-Driven Design</span></div>
+      <div class="trust-sep">·</div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       ABOUT SECTION
+  ============================================================ -->
+  <section id="about" class="about-section section-padding">
+    <div class="container">
+      <div class="section-label reveal-up">Our Story</div>
+      <h2 class="section-title reveal-up delay-1">
+        Rewriting the Rules of<br />
+        <span class="gradient-text">Ophthalmic Healthcare</span>
+      </h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal-left delay-1">
+          <p class="about-lead">
+            OQTEX is an Egyptian Med-Tech company at the intersection of artificial intelligence, ophthalmology, and digital healthcare infrastructure.
+          </p>
+          <p class="about-body">
+            We are building the most advanced ophthalmology technology ecosystem in the MENA region — combining AI diagnostics, clinical workflow systems, and intelligent data infrastructure to transform how eye care is delivered, diagnosed, and managed.
+          </p>
+          <p class="about-body">
+            Born from deep clinical insight and cutting-edge AI research, OQTEX exists to give every patient in the region access to world-class ophthalmic intelligence — regardless of geography.
+          </p>
+          <div class="about-tags">
+            <span class="tag">AI Ophthalmology</span>
+            <span class="tag">Med-Tech R&D</span>
+            <span class="tag">Digital Health</span>
+            <span class="tag">MENA Vision</span>
+            <span class="tag">Clinical AI</span>
+          </div>
+        </div>
+
+        <div class="about-cards reveal-right delay-2">
+          <div class="about-card glass-card">
+            <div class="about-card-icon"><i class="fas fa-brain"></i></div>
+            <h3>AI-First Architecture</h3>
+            <p>Every product is built with AI at its core — not as an afterthought, but as the foundation.</p>
+          </div>
+          <div class="about-card glass-card">
+            <div class="about-card-icon"><i class="fas fa-eye"></i></div>
+            <h3>Ophthalmology-Specialized</h3>
+            <p>Exclusively focused on eye care — giving us unmatched depth in ophthalmic workflows and diagnostics.</p>
+          </div>
+          <div class="about-card glass-card">
+            <div class="about-card-icon"><i class="fas fa-globe"></i></div>
+            <h3>Regional Ambition</h3>
+            <p>Starting from Egypt, expanding across MENA — building infrastructure that scales with the region's vision.</p>
+          </div>
+          <div class="about-card glass-card">
+            <div class="about-card-icon"><i class="fas fa-microscope"></i></div>
+            <h3>Research-Driven</h3>
+            <p>Our OQmega division conducts advanced AI research to push the boundaries of ophthalmic science.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-stats-bar reveal-up delay-3">
+        <div class="astat">
+          <span class="astat-num counter" data-target="12">0</span><span class="astat-unit">+</span>
+          <span class="astat-label">AI Models Developed</span>
+        </div>
+        <div class="astat">
+          <span class="astat-num counter" data-target="8">0</span><span class="astat-unit">+</span>
+          <span class="astat-label">Research Projects</span>
+        </div>
+        <div class="astat">
+          <span class="astat-num counter" data-target="5">0</span><span class="astat-unit">+</span>
+          <span class="astat-label">Healthcare Integrations</span>
+        </div>
+        <div class="astat">
+          <span class="astat-num counter" data-target="18">0</span><span class="astat-unit"></span>
+          <span class="astat-label">MENA Markets Targeted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRODUCTS SECTION
+  ============================================================ -->
+  <section id="products" class="products-section section-padding">
+    <div class="products-bg-glow"></div>
+    <div class="container">
+      <div class="section-label reveal-up">Our Ecosystem</div>
+      <h2 class="section-title reveal-up delay-1">
+        Two Pillars of the<br />
+        <span class="gradient-text">OQTEX Universe</span>
+      </h2>
+      <p class="section-sub reveal-up delay-2">
+        An integrated ecosystem of AI-powered products — each one a breakthrough in ophthalmology technology.
+      </p>
+
+      <div class="products-grid">
+        <!-- OQfy Card -->
+        <div class="product-card glass-card reveal-left delay-2" id="oqfy-card">
+          <div class="product-glow oqfy-glow"></div>
+
+          <!-- Hero Logo Banner -->
+          <div class="product-hero-banner oqfy-banner">
+            <div class="product-hero-bg"></div>
+            <div class="product-hero-content">
+              <div class="product-hero-icon">
+                <img src="images/oqfy-logo.png" alt="OQfy" class="product-logo-img" />
+              </div>
+              <div class="product-hero-text">
+                <span class="product-name oqfy-color">OQfy</span>
+                <span class="product-tagline">by OQTEX</span>
+              </div>
+            </div>
+            <div class="product-hero-badge">
+              <i class="fas fa-hospital-alt"></i>
+              <span>Clinical Platform</span>
+            </div>
+          </div>
+
+          <h3 class="product-title">The Future of Ophthalmic Clinical Infrastructure</h3>
+          <p class="product-desc">
+            OQfy is an AI-powered ophthalmology HIS/EMR ecosystem — purpose-built to transform how eye clinics and hospitals manage patients, imaging, workflows, and data.
+          </p>
+
+          <div class="product-features">
+            <div class="feat-item">
+              <i class="fas fa-users-cog"></i>
+              <span>Patient Workflow Management</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-file-medical-alt"></i>
+              <span>Ophthalmology-Specific EMR</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-camera-retro"></i>
+              <span>Imaging Integration</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-cloud"></i>
+              <span>Cloud Infrastructure</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-chart-bar"></i>
+              <span>Smart Analytics Dashboard</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-robot"></i>
+              <span>AI-Assisted Workflow</span>
+            </div>
+          </div>
+
+          <div class="product-mockup oqfy-mockup">
+            <div class="mockup-screen">
+              <div class="mockup-topbar">
+                <span class="mockup-dot r"></span>
+                <span class="mockup-dot y"></span>
+                <span class="mockup-dot g"></span>
+                <span class="mockup-title-bar">OQfy · Patient Dashboard</span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-sidebar">
+                  <div class="sb-item active"><i class="fas fa-th-large"></i></div>
+                  <div class="sb-item"><i class="fas fa-users"></i></div>
+                  <div class="sb-item"><i class="fas fa-calendar-alt"></i></div>
+                  <div class="sb-item"><i class="fas fa-camera"></i></div>
+                  <div class="sb-item"><i class="fas fa-chart-pie"></i></div>
+                </div>
+                <div class="mockup-content">
+                  <div class="mockup-row">
+                    <div class="mockup-kpi">
+                      <span class="kpi-val">142</span>
+                      <span class="kpi-lbl">Patients Today</span>
+                    </div>
+                    <div class="mockup-kpi">
+                      <span class="kpi-val copper">38</span>
+                      <span class="kpi-lbl">Pending OCT</span>
+                    </div>
+                    <div class="mockup-kpi">
+                      <span class="kpi-val green">97%</span>
+                      <span class="kpi-lbl">Efficiency</span>
+                    </div>
+                  </div>
+                  <div class="mockup-chart-area">
+                    <div class="chart-bar-group">
+                      <div class="chart-bar" style="height:60%"></div>
+                      <div class="chart-bar" style="height:80%"></div>
+                      <div class="chart-bar active" style="height:95%"></div>
+                      <div class="chart-bar" style="height:70%"></div>
+                      <div class="chart-bar" style="height:85%"></div>
+                      <div class="chart-bar" style="height:75%"></div>
+                      <div class="chart-bar" style="height:90%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="product-cta">
+            <span>Request OQfy Demo</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- OQgen Card -->
+        <div class="product-card glass-card reveal-right delay-3" id="oqgen-card">
+          <div class="product-glow oqgen-glow"></div>
+
+          <!-- Hero Logo Banner -->
+          <div class="product-hero-banner oqgen-banner">
+            <div class="product-hero-bg"></div>
+            <div class="product-hero-content">
+              <div class="product-hero-icon">
+                <img src="images/oqgen-logo.png" alt="OQgen" class="product-logo-img" />
+              </div>
+              <div class="product-hero-text">
+                <span class="product-name oqgen-color">OQgen</span>
+                <span class="product-tagline">by OQTEX</span>
+              </div>
+            </div>
+            <div class="product-hero-badge">
+              <i class="fas fa-brain"></i>
+              <span>AI Engine</span>
+            </div>
+          </div>
+
+          <h3 class="product-title">Intelligent Vision. Powered by Deep Learning.</h3>
+          <p class="product-desc">
+            OQgen is OQTEX's AI diagnostics engine — a state-of-the-art computer vision platform that analyzes retinal images, detects ophthalmic diseases, and delivers predictive insights at clinical scale.
+          </p>
+
+          <div class="product-features">
+            <div class="feat-item">
+              <i class="fas fa-eye"></i>
+              <span>AI Retinal Image Analysis</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-virus-slash"></i>
+              <span>Multi-Disease Detection</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-file-alt"></i>
+              <span>Automated Clinical Reports</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-bolt"></i>
+              <span>Real-Time Inference</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-network-wired"></i>
+              <span>Deep Learning Architecture</span>
+            </div>
+            <div class="feat-item">
+              <i class="fas fa-expand-arrows-alt"></i>
+              <span>Scalable AI Deployment</span>
+            </div>
+          </div>
+
+          <div class="product-mockup oqgen-mockup">
+            <div class="mockup-screen">
+              <div class="mockup-topbar">
+                <span class="mockup-dot r"></span>
+                <span class="mockup-dot y"></span>
+                <span class="mockup-dot g"></span>
+                <span class="mockup-title-bar">OQgen · AI Analysis</span>
+              </div>
+              <div class="mockup-body oqgen-body">
+                <div class="retina-display">
+                  <div class="retina-img-mock">
+                    <div class="retina-core"></div>
+                    <div class="retina-vessel v1"></div>
+                    <div class="retina-vessel v2"></div>
+                    <div class="retina-vessel v3"></div>
+                    <div class="ai-detection-box"></div>
+                    <div class="ai-scan-beam"></div>
+                  </div>
+                </div>
+                <div class="ai-results">
+                  <div class="ai-result-item">
+                    <span class="air-label">Diabetic Retinopathy</span>
+                    <div class="air-bar"><div class="air-fill" style="width:15%"></div></div>
+                    <span class="air-score green">Negative</span>
+                  </div>
+                  <div class="ai-result-item">
+                    <span class="air-label">Glaucoma Suspect</span>
+                    <div class="air-bar"><div class="air-fill amber" style="width:32%"></div></div>
+                    <span class="air-score amber">Monitor</span>
+                  </div>
+                  <div class="ai-result-item">
+                    <span class="air-label">AMD</span>
+                    <div class="air-bar"><div class="air-fill" style="width:5%"></div></div>
+                    <span class="air-score green">Clear</span>
+                  </div>
+                  <div class="ai-conf">
+                    <i class="fas fa-check-circle"></i> Model Confidence: <strong>96.4%</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="product-cta oqgen-cta">
+            <span>Explore OQgen AI</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OQMEGA SECTION
+  ============================================================ -->
+  <section id="oqmega" class="oqmega-section section-padding">
+    <canvas id="oqmegaCanvas" class="oqmega-canvas"></canvas>
+    <div class="container">
+      <div class="section-label reveal-up">R&D Division</div>
+      <h2 class="section-title reveal-up delay-1">
+        The Minds Behind<br />
+        <span class="gradient-text">The Intelligence</span>
+      </h2>
+      <p class="section-sub reveal-up delay-2">
+        OQmega is the advanced AI research and development division powering the next generation of ophthalmology technologies at OQTEX.
+      </p>
+
+      <div class="oqmega-intro reveal-up delay-2">
+        <div class="oqmega-logo-section">
+          <div class="oqmega-emblem">
+            <div class="oqmega-ring r1"></div>
+            <div class="oqmega-ring r2"></div>
+            <div class="oqmega-ring r3"></div>
+            <div class="oqmega-center">
+              <i class="fas fa-atom"></i>
+            </div>
+          </div>
+          <div class="oqmega-label-box">
+            <span class="oqmega-name">OQmega</span>
+            <span class="oqmega-sub">Advanced AI Research Division</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="oqmega-pillars reveal-up delay-3">
+        <div class="pillar-card glass-card">
+          <div class="pillar-icon"><i class="fas fa-microchip"></i></div>
+          <h3>Computer Vision</h3>
+          <p>Developing state-of-the-art vision transformer models trained on curated ophthalmic imaging datasets from across MENA.</p>
+          <div class="pillar-tags">
+            <span>ViT</span><span>CNNs</span><span>Transformers</span>
+          </div>
+        </div>
+        <div class="pillar-card glass-card">
+          <div class="pillar-icon"><i class="fas fa-dna"></i></div>
+          <h3>Clinical AI</h3>
+          <p>Translating deep learning breakthroughs into clinically validated tools that meet the demands of real-world ophthalmology.</p>
+          <div class="pillar-tags">
+            <span>FDA-grade</span><span>Validation</span><span>CE pathway</span>
+          </div>
+        </div>
+        <div class="pillar-card glass-card">
+          <div class="pillar-icon"><i class="fas fa-database"></i></div>
+          <h3>Data Science</h3>
+          <p>Building MENA's largest curated ophthalmic imaging dataset to power the next generation of diagnostics models.</p>
+          <div class="pillar-tags">
+            <span>Annotation</span><span>Curation</span><span>Federated</span>
+          </div>
+        </div>
+        <div class="pillar-card glass-card">
+          <div class="pillar-icon"><i class="fas fa-code-branch"></i></div>
+          <h3>MLOps & Deployment</h3>
+          <p>Scalable AI infrastructure for deploying, monitoring, and improving production ophthalmology models at regional scale.</p>
+          <div class="pillar-tags">
+            <span>Edge AI</span><span>Cloud</span><span>Monitoring</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code animation block -->
+      <div class="oqmega-code-section reveal-up delay-3">
+        <div class="code-window glass-card">
+          <div class="code-topbar">
+            <span class="code-dot r"></span>
+            <span class="code-dot y"></span>
+            <span class="code-dot g"></span>
+            <span class="code-file">oqgen_inference.py · OQmega Research</span>
+          </div>
+          <div class="code-body" id="codeBody">
+            <div class="code-line"><span class="code-kw">import</span> <span class="code-mod">oqgen</span> <span class="code-kw">as</span> oq</div>
+            <div class="code-line"><span class="code-kw">from</span> <span class="code-mod">oqmega.models</span> <span class="code-kw">import</span> RetinalAnalyzer</div>
+            <div class="code-line"><span class="code-cmt"># Initialize OQgen AI engine</span></div>
+            <div class="code-line">model <span class="code-op">=</span> RetinalAnalyzer.<span class="code-fn">load</span>(<span class="code-str">'oqgen-v3-mena'</span>)</div>
+            <div class="code-line">&nbsp;</div>
+            <div class="code-line"><span class="code-cmt"># Run inference on fundus image</span></div>
+            <div class="code-line">result <span class="code-op">=</span> model.<span class="code-fn">analyze</span>(</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;image<span class="code-op">=</span>fundus_scan,</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;modality<span class="code-op">=</span><span class="code-str">'fundus_photo'</span>,</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;output<span class="code-op">=</span>[<span class="code-str">'dr'</span>, <span class="code-str">'glaucoma'</span>, <span class="code-str">'amd'</span>]</div>
+            <div class="code-line">)</div>
+            <div class="code-line">&nbsp;</div>
+            <div class="code-line"><span class="code-cmt"># Confidence: 96.4% · Inference: 0.3s</span></div>
+            <div class="code-line"><span class="code-fn">print</span>(result.<span class="code-fn">findings</span>, result.<span class="code-fn">confidence</span>)</div>
+            <div class="code-cursor">▍</div>
+          </div>
+        </div>
+        <div class="oqmega-stats-panel glass-card">
+          <h4>Research Output</h4>
+          <div class="rs-item">
+            <div class="rs-label">Model Accuracy</div>
+            <div class="rs-bar-wrap"><div class="rs-bar" style="width:96%"></div></div>
+            <span class="rs-val">96.4%</span>
+          </div>
+          <div class="rs-item">
+            <div class="rs-label">Inference Speed</div>
+            <div class="rs-bar-wrap"><div class="rs-bar" style="width:90%"></div></div>
+            <span class="rs-val">&lt;300ms</span>
+          </div>
+          <div class="rs-item">
+            <div class="rs-label">Dataset Coverage</div>
+            <div class="rs-bar-wrap"><div class="rs-bar" style="width:78%"></div></div>
+            <span class="rs-val">MENA-wide</span>
+          </div>
+          <div class="rs-item">
+            <div class="rs-label">Clinical Validation</div>
+            <div class="rs-bar-wrap"><div class="rs-bar" style="width:85%"></div></div>
+            <span class="rs-val">In progress</span>
+          </div>
+          <div class="rs-divider"></div>
+          <div class="rs-badge"><i class="fas fa-flask"></i> Active Research: 8 projects</div>
+          <div class="rs-badge"><i class="fas fa-graduation-cap"></i> AI Scientists: OQmega Team</div>
+        </div>
+      </div>
+
+      <!-- OQmega Team Cards -->
+      <div class="oqmega-team-label reveal-up delay-3">
+        <span class="section-label">Meet The Team</span>
+      </div>
+      <div class="oqmega-team-grid reveal-up delay-4">
+        <div class="team-card glass-card">
+          <div class="team-hologram">
+            <div class="holo-ring h1"></div>
+            <div class="holo-ring h2"></div>
+            <div class="team-avatar-wrap">
+              <div class="team-avatar ta-1">
+                <i class="fas fa-user-circle"></i>
+              </div>
+            </div>
+          </div>
+          <div class="team-info">
+            <div class="team-name">AI Research Lead</div>
+            <div class="team-role">Computer Vision · Deep Learning</div>
+            <div class="team-specialties">
+              <span>Retinal Imaging</span>
+              <span>CNNs</span>
+              <span>ViT</span>
+            </div>
+          </div>
+          <div class="team-status">
+            <span class="tstatus-dot"></span>
+            <span>Active Research</span>
+          </div>
+        </div>
+        <div class="team-card glass-card">
+          <div class="team-hologram">
+            <div class="holo-ring h1"></div>
+            <div class="holo-ring h2"></div>
+            <div class="team-avatar-wrap">
+              <div class="team-avatar ta-2">
+                <i class="fas fa-user-circle"></i>
+              </div>
+            </div>
+          </div>
+          <div class="team-info">
+            <div class="team-name">Clinical AI Scientist</div>
+            <div class="team-role">Medical Validation · AI Ethics</div>
+            <div class="team-specialties">
+              <span>Ophthalmology</span>
+              <span>FDA</span>
+              <span>CE Mark</span>
+            </div>
+          </div>
+          <div class="team-status">
+            <span class="tstatus-dot"></span>
+            <span>Clinical Trials</span>
+          </div>
+        </div>
+        <div class="team-card glass-card">
+          <div class="team-hologram">
+            <div class="holo-ring h1"></div>
+            <div class="holo-ring h2"></div>
+            <div class="team-avatar-wrap">
+              <div class="team-avatar ta-3">
+                <i class="fas fa-user-circle"></i>
+              </div>
+            </div>
+          </div>
+          <div class="team-info">
+            <div class="team-name">ML Infrastructure</div>
+            <div class="team-role">MLOps · Edge Deployment</div>
+            <div class="team-specialties">
+              <span>PyTorch</span>
+              <span>ONNX</span>
+              <span>TensorRT</span>
+            </div>
+          </div>
+          <div class="team-status">
+            <span class="tstatus-dot"></span>
+            <span>Model Deployment</span>
+          </div>
+        </div>
+        <div class="team-card glass-card">
+          <div class="team-hologram">
+            <div class="holo-ring h1"></div>
+            <div class="holo-ring h2"></div>
+            <div class="team-avatar-wrap">
+              <div class="team-avatar ta-4">
+                <i class="fas fa-user-circle"></i>
+              </div>
+            </div>
+          </div>
+          <div class="team-info">
+            <div class="team-name">Data Science Lead</div>
+            <div class="team-role">Dataset Curation · Annotation</div>
+            <div class="team-specialties">
+              <span>MENA Data</span>
+              <span>DICOM</span>
+              <span>Federated</span>
+            </div>
+          </div>
+          <div class="team-status">
+            <span class="tstatus-dot"></span>
+            <span>Dataset Building</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY OQTEX SECTION
+  ============================================================ -->
+  <section id="why" class="why-section section-padding">
+    <div class="container">
+      <div class="section-label reveal-up">Our Edge</div>
+      <h2 class="section-title reveal-up delay-1">
+        Why the Future of<br />
+        <span class="gradient-text">Eye Care Starts Here</span>
+      </h2>
+
+      <div class="why-grid">
+        <div class="why-card glass-card reveal-up delay-1">
+          <div class="why-icon"><i class="fas fa-crosshairs"></i></div>
+          <h3>Ophthalmology-Only Focus</h3>
+          <p>We don't try to be everything. Every line of code, every AI model, every design decision is made exclusively for ophthalmic care — giving us unmatched depth.</p>
+        </div>
+        <div class="why-card glass-card reveal-up delay-2">
+          <div class="why-icon"><i class="fas fa-brain"></i></div>
+          <h3>AI-Powered Ecosystem</h3>
+          <p>From clinical workflows to diagnostic engines, our products are intelligent by design — learning, adapting, and improving with every patient interaction.</p>
+        </div>
+        <div class="why-card glass-card reveal-up delay-1">
+          <div class="why-icon"><i class="fas fa-flag"></i></div>
+          <h3>Egyptian Innovation, Global Standards</h3>
+          <p>Born in Egypt, built for the world. We combine local clinical insight with global AI research standards to create solutions that resonate across MENA.</p>
+        </div>
+        <div class="why-card glass-card reveal-up delay-2">
+          <div class="why-icon"><i class="fas fa-user-md"></i></div>
+          <h3>Clinician-Driven Development</h3>
+          <p>Built alongside ophthalmologists, not just for them. Every product is co-designed with clinical experts to ensure real-world usability and impact.</p>
+        </div>
+        <div class="why-card glass-card reveal-up delay-3">
+          <div class="why-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Scalable Infrastructure</h3>
+          <p>Our architecture is cloud-native, modular, and designed to scale — from a single clinic in Cairo to a national healthcare network across MENA.</p>
+        </div>
+        <div class="why-card glass-card reveal-up delay-3">
+          <div class="why-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Future-Ready Architecture</h3>
+          <p>We build with tomorrow in mind — edge AI, federated learning, multimodal diagnostics, and real-time inference are not add-ons; they're our foundation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VISION SECTION
+  ============================================================ -->
+  <section id="vision" class="vision-section">
+    <canvas id="visionCanvas" class="vision-canvas"></canvas>
+    <div class="vision-overlay"></div>
+    <div class="container vision-content">
+      <div class="section-label reveal-up light-label">Our Vision</div>
+      <h2 class="vision-title reveal-up delay-1">
+        Redefining Vision<br />
+        <span class="gradient-text">Through Technology</span>
+      </h2>
+      <p class="vision-desc reveal-up delay-2">
+        We envision a future where every eye clinic across MENA has access to hospital-grade AI diagnostics. Where a patient in a remote Egyptian village receives the same diagnostic intelligence as one in a London teaching hospital. Where ophthalmologists are empowered — not replaced — by AI that thinks at the speed of light.
+      </p>
+
+      <div class="vision-pillars reveal-up delay-3">
+        <div class="vpillar">
+          <div class="vpillar-num">01</div>
+          <h4>Intelligent Diagnostics</h4>
+          <p>AI-powered retinal analysis that detects disease earlier, more accurately, and at scale.</p>
+        </div>
+        <div class="vpillar">
+          <div class="vpillar-num">02</div>
+          <h4>Digital Infrastructure</h4>
+          <p>Seamless clinical ecosystems connecting imaging, records, analytics, and AI across facilities.</p>
+        </div>
+        <div class="vpillar">
+          <div class="vpillar-num">03</div>
+          <h4>Regional Transformation</h4>
+          <p>Deploying world-class ophthalmic AI across 18+ MENA markets — raising the standard of care.</p>
+        </div>
+        <div class="vpillar">
+          <div class="vpillar-num">04</div>
+          <h4>Research Leadership</h4>
+          <p>Publishing, innovating, and training the next generation of AI ophthalmology researchers in Egypt.</p>
+        </div>
+      </div>
+
+      <div class="vision-quote reveal-up delay-4">
+        <div class="quote-mark">"</div>
+        <blockquote>
+          The eye is the window to the body. We are building the intelligence to read that window — at scale, with precision, for the entire region.
+        </blockquote>
+        <div class="quote-attr">— OQTEX Founding Vision</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT SECTION
+  ============================================================ -->
+  <section id="contact" class="contact-section section-padding">
+    <div class="container">
+      <div class="section-label reveal-up">Let's Connect</div>
+      <h2 class="section-title reveal-up delay-1">
+        Join The Future of<br />
+        <span class="gradient-text">Intelligent Eye Care</span>
+      </h2>
+      <p class="section-sub reveal-up delay-2">
+        Whether you're a clinic, hospital, investor, or researcher — we'd love to hear from you.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-left delay-2">
+          <div class="contact-block">
+            <h3>Get in Touch</h3>
+            <p>Ready to transform your ophthalmology practice with AI? Request a demo or reach out to learn how OQTEX can elevate your clinical operations.</p>
+          </div>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="ci-text">
+                <span class="ci-label">Location</span>
+                <span class="ci-val">Cairo, Egypt · MENA Region</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div class="ci-text">
+                <span class="ci-label">Email</span>
+                <span class="ci-val">hello@oqtex.ai</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><i class="fas fa-phone"></i></div>
+              <div class="ci-text">
+                <span class="ci-label">Phone</span>
+                <span class="ci-val">+20 100 000 0000</span>
+              </div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal-right delay-3">
+          <form class="contact-form glass-card" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Ahmed" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Mohamed" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="ahmed@hospital.eg" required />
+            </div>
+            <div class="form-group">
+              <label for="org">Organization</label>
+              <input type="text" id="org" name="org" placeholder="Cairo Eye Center" />
+            </div>
+            <div class="form-group">
+              <label for="interest">I'm interested in</label>
+              <select id="interest" name="interest">
+                <option value="">Select product or topic</option>
+                <option value="oqfy">OQfy — Clinical Platform</option>
+                <option value="oqgen">OQgen — AI Diagnostics</option>
+                <option value="partnership">Partnership / Investment</option>
+                <option value="research">Research Collaboration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your needs or how we can help..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary full-btn">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+              <a href="#" class="btn-outline full-btn">
+                <span>Request a Demo</span>
+                <i class="fas fa-play"></i>
+              </a>
+            </div>
+            <div class="form-success" id="formSuccess">
+              <i class="fas fa-check-circle"></i>
+              <span>Message sent! We'll be in touch soon.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="images/oqtex-logo.png" alt="OQTEX Logo" class="footer-logo" />
+          <p>Egypt's leading AI-powered ophthalmology technology company. Building the future of intelligent eye care across MENA.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#products">OQfy — Clinical Platform</a></li>
+            <li><a href="#products">OQgen — AI Engine</a></li>
+            <li><a href="#oqmega">OQmega — R&D Division</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About OQTEX</a></li>
+            <li><a href="#why">Why OQTEX</a></li>
+            <li><a href="#vision">Our Vision</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Technology</h4>
+          <ul>
+            <li><a href="#oqmega">AI Research</a></li>
+            <li><a href="#products">Clinical AI</a></li>
+            <li><a href="#products">Retinal Analysis</a></li>
+            <li><a href="#contact">Partnerships</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 OQTEX. All rights reserved. Ophthalmology Meets Intelligence.</p>
+        <div class="footer-badges">
+          <span class="fbadge"><i class="fas fa-shield-alt"></i> HIPAA Aware</span>
+          <span class="fbadge"><i class="fas fa-lock"></i> Secure by Design</span>
+          <span class="fbadge"><i class="fas fa-flag"></i> Made in Egypt</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

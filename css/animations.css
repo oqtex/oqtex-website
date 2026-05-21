@@ -1,0 +1,1188 @@
+/* ============================================================
+   OQTEX — Enhanced Animations & Polish Layer
+   Additional visual effects, micro-interactions, refinements
+   ============================================================ */
+
+/* ══════════════════════════════════════════════════════════════
+   TRUST BAR
+══════════════════════════════════════════════════════════════ */
+.trust-bar {
+  background: var(--bg-1);
+  border-top: 1px solid rgba(201,127,82,0.12);
+  border-bottom: 1px solid rgba(201,127,82,0.12);
+  overflow: hidden;
+  padding: 14px 0;
+  position: relative;
+}
+.trust-bar::before,
+.trust-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.trust-bar::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-1), transparent);
+}
+.trust-bar::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--bg-1), transparent);
+}
+.trust-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  animation: trust-scroll 30s linear infinite;
+  width: max-content;
+}
+@keyframes trust-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.03em;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+.trust-item:hover { color: var(--copper-light); }
+.trust-item i { color: var(--copper); font-size: 0.8rem; }
+.trust-sep { color: rgba(201,127,82,0.3); font-size: 1.2rem; user-select: none; }
+
+/* ══════════════════════════════════════════════════════════════
+   OQMEGA TEAM CARDS
+══════════════════════════════════════════════════════════════ */
+.oqmega-team-label {
+  margin-top: 60px;
+  margin-bottom: 32px;
+}
+
+.oqmega-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.team-card {
+  padding: 28px 20px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.team-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201,127,82,0.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(201,127,82,0.12);
+}
+
+/* Hologram effect */
+.team-hologram {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 16px;
+}
+.holo-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(201,127,82,0.25);
+  animation: holo-spin 6s linear infinite;
+}
+.holo-ring.h1 { inset: 0; animation-duration: 6s; }
+.holo-ring.h2 { inset: 8px; animation-duration: 9s; animation-direction: reverse; border-color: rgba(111,29,27,0.35); }
+@keyframes holo-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.team-card:hover .holo-ring.h1 { animation-duration: 1.5s; }
+.team-card:hover .holo-ring.h2 { animation-duration: 2.5s; }
+
+.team-avatar-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-avatar {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  position: relative;
+}
+.ta-1 { background: linear-gradient(135deg, rgba(111,29,27,0.6), rgba(201,127,82,0.4)); color: var(--copper-light); }
+.ta-2 { background: linear-gradient(135deg, rgba(141,42,42,0.6), rgba(163,58,58,0.4)); color: #E0A37A; }
+.ta-3 { background: linear-gradient(135deg, rgba(201,127,82,0.5), rgba(163,97,58,0.4)); color: #F5C89A; }
+.ta-4 { background: linear-gradient(135deg, rgba(111,29,27,0.7), rgba(201,127,82,0.3)); color: var(--copper); }
+
+.team-info { margin-bottom: 14px; }
+.team-name {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+.team-role {
+  font-size: 0.75rem;
+  color: var(--text-3);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.team-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+.team-specialties span {
+  padding: 3px 10px;
+  background: rgba(201,127,82,0.07);
+  border: 1px solid rgba(201,127,82,0.15);
+  border-radius: 100px;
+  font-size: 0.65rem;
+  color: var(--copper);
+  font-weight: 600;
+}
+.team-card:hover .team-specialties span {
+  background: rgba(201,127,82,0.12);
+  border-color: rgba(201,127,82,0.3);
+}
+
+.team-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: var(--green);
+  font-weight: 600;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.tstatus-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 2s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(62,207,142,0.5);
+}
+
+/* Team card shine */
+.team-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,127,82,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.team-card:hover::after { opacity: 1; }
+
+@media (max-width: 900px) {
+  .oqmega-team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .oqmega-team-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .team-card { padding: 20px 14px; }
+}
+
+/* ── ENHANCED HERO GRADIENT ANIMATION ─────────────────────── */
+@keyframes hero-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes copper-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── ANIMATED GRADIENT TEXT SHIMMER ───────────────────────── */
+.gradient-text {
+  background-size: 200% auto;
+  animation: copper-shimmer 4s linear infinite;
+}
+
+/* ── HERO SECTION AMBIENT PULSE ───────────────────────────── */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(111, 29, 27, 0.18) 0%,
+    rgba(201, 127, 82, 0.06) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: ambient-pulse 8s ease-in-out infinite;
+}
+@keyframes ambient-pulse {
+  0%,100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+  50%      { transform: translateX(-50%) scale(1.1); opacity: 1; }
+}
+
+/* ── HERO TITLE WORD HIGHLIGHT ────────────────────────────── */
+.hero-title .highlight-word {
+  position: relative;
+  display: inline-block;
+}
+.hero-title .highlight-word::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--copper-dark), var(--copper-light));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underline-grow 1s cubic-bezier(0.23, 1, 0.32, 1) 1.2s forwards;
+}
+@keyframes underline-grow {
+  to { transform: scaleX(1); }
+}
+
+/* ── GLASSMORPHISM ENHANCED ───────────────────────────────── */
+.glass-card {
+  position: relative;
+  overflow: hidden;
+}
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.025) 50%,
+    transparent 60%
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.glass-card:hover::before {
+  left: 140%;
+}
+
+/* ── PRODUCT CARD ENHANCED GLOW BORDER ───────────────────── */
+.product-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+}
+.product-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, rgba(201,127,82,0.3), transparent 50%, rgba(111,29,27,0.2)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.product-card:hover::after {
+  opacity: 1;
+}
+
+/* ── SECTION DIVIDERS ENHANCED ────────────────────────────── */
+.about-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,127,82,0.2), transparent);
+}
+
+/* ── STAT BAR GLOW EFFECT ─────────────────────────────────── */
+.astat-num {
+  text-shadow: 0 0 30px rgba(224, 163, 122, 0.4);
+}
+
+/* ── FEATURE ITEMS ENHANCED ───────────────────────────────── */
+.feat-item {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+.feat-item:hover {
+  background: rgba(201, 127, 82, 0.07);
+  border-color: rgba(201, 127, 82, 0.2);
+  color: var(--copper-light) !important;
+  transform: translateX(4px);
+}
+.feat-item i {
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.feat-item:hover i {
+  transform: scale(1.3) !important;
+  color: var(--copper-light) !important;
+}
+
+/* ── NAV LINK UNDERLINE EFFECT ────────────────────────────── */
+.nav-link:not(.nav-cta) {
+  position: relative;
+}
+.nav-link:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: calc(100% - 28px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--copper), var(--copper-light));
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center;
+}
+.nav-link:not(.nav-cta):hover::after,
+.nav-link:not(.nav-cta).active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ── OQMEGA SECTION ENHANCED BACKGROUND ──────────────────── */
+.oqmega-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,127,82,0.3), transparent);
+  z-index: 3;
+}
+.oqmega-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,127,82,0.2), transparent);
+  z-index: 3;
+}
+
+/* ── VISION SECTION ENHANCED ─────────────────────────────── */
+.vision-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,127,82,0.3), transparent);
+  z-index: 3;
+}
+
+/* ── CONTACT SECTION FORM GLOW ────────────────────────────── */
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--copper), transparent);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* ── ENHANCED BUTTON RIPPLE ───────────────────────────────── */
+.btn-primary, .product-cta {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after, .product-cta::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+.btn-primary:active::after, .product-cta:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  transition: 0s;
+}
+
+/* ── CARD ICON ENHANCED ───────────────────────────────────── */
+.about-card-icon,
+.why-icon,
+.pillar-icon {
+  position: relative;
+  overflow: hidden;
+}
+.about-card-icon::after,
+.why-icon::after,
+.pillar-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(201,127,82,0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+.about-card:hover .about-card-icon::after,
+.why-card:hover .why-icon::after,
+.pillar-card:hover .pillar-icon::after {
+  opacity: 1;
+}
+
+/* ── OQMEGA EMBLEM GLOW ───────────────────────────────────── */
+.oqmega-emblem::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,127,82,0.1) 0%, transparent 70%);
+  animation: emblem-glow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes emblem-glow {
+  0%,100% { opacity: 0.4; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.1); }
+}
+
+/* ── HERO BADGE PULSE ─────────────────────────────────────── */
+.hero-badge {
+  animation: badge-entrance 1s cubic-bezier(0.23, 1, 0.32, 1) 0.3s both;
+}
+@keyframes badge-entrance {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── QUEUE ITEMS ENHANCED ─────────────────────────────────── */
+.queue-item {
+  transition: background 0.2s ease, transform 0.2s ease;
+  animation: queue-slide 0.5s ease both;
+}
+.queue-item:nth-child(1) { animation-delay: 0.5s; }
+.queue-item:nth-child(2) { animation-delay: 0.7s; }
+.queue-item:nth-child(3) { animation-delay: 0.9s; }
+@keyframes queue-slide {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── RETINA SCAN CORNER ANIMATION ────────────────────────── */
+.scan-corner {
+  animation: corner-glow 2s ease-in-out infinite;
+}
+.scan-corner.tl { animation-delay: 0s; }
+.scan-corner.tr { animation-delay: 0.5s; }
+.scan-corner.bl { animation-delay: 1s; }
+.scan-corner.br { animation-delay: 1.5s; }
+@keyframes corner-glow {
+  0%,100% { border-color: rgba(201,127,82,0.6); box-shadow: none; }
+  50%      { border-color: var(--copper-light); box-shadow: 0 0 6px rgba(224,163,122,0.5); }
+}
+
+/* ── PILLAR CARD BORDER SHIMMER ───────────────────────────── */
+.pillar-card {
+  position: relative;
+  overflow: hidden;
+}
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,127,82,0.6), transparent);
+  transition: left 0.8s ease;
+  pointer-events: none;
+}
+.pillar-card:hover::before {
+  left: 150%;
+}
+
+/* ── WHY CARD NUMBER BADGE ────────────────────────────────── */
+.why-card {
+  counter-increment: why-counter;
+}
+
+/* ── FOOTER LOGO HOVER ────────────────────────────────────── */
+.footer-logo {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.footer-logo:hover {
+  filter: drop-shadow(0 0 12px rgba(201,127,82,0.5));
+  transform: scale(1.03);
+}
+
+/* ── SCROLL PROGRESS BAR ──────────────────────────────────── */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red-deep), var(--copper), var(--copper-light));
+  z-index: 9998;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.1s linear;
+  width: 100%;
+  box-shadow: 0 0 8px rgba(201,127,82,0.5);
+}
+
+/* ── PRODUCTS SECTION STRIPE ──────────────────────────────── */
+.products-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,127,82,0.25), transparent);
+}
+
+/* ── MOCKUP CHART BAR ANIMATION ───────────────────────────── */
+.chart-bar {
+  transform-origin: bottom;
+  animation: bar-grow 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+.chart-bar:nth-child(1) { animation-delay: 0.1s; }
+.chart-bar:nth-child(2) { animation-delay: 0.2s; }
+.chart-bar:nth-child(3) { animation-delay: 0.3s; }
+.chart-bar:nth-child(4) { animation-delay: 0.4s; }
+.chart-bar:nth-child(5) { animation-delay: 0.5s; }
+.chart-bar:nth-child(6) { animation-delay: 0.6s; }
+.chart-bar:nth-child(7) { animation-delay: 0.7s; }
+@keyframes bar-grow {
+  from { transform: scaleY(0); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+
+/* ── AI RESULT BARS ANIMATION ─────────────────────────────── */
+.air-fill {
+  animation: fill-grow 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.5s both;
+  transform-origin: left;
+}
+@keyframes fill-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── FORM INPUTS ENHANCED ─────────────────────────────────── */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  background: rgba(201,127,82,0.04);
+}
+
+/* ── SOCIAL BUTTON TOOLTIP ────────────────────────────────── */
+.social-btn {
+  position: relative;
+}
+
+/* ── FOOTER BOTTOM BADGES HOVER ───────────────────────────── */
+.fbadge {
+  transition: all 0.25s ease;
+  cursor: default;
+}
+.fbadge:hover {
+  background: rgba(201,127,82,0.08);
+  border-color: rgba(201,127,82,0.25);
+  color: var(--copper-light);
+}
+.fbadge:hover i { color: var(--copper-light); }
+
+/* ── HERO PANELS GLASS SHINE ──────────────────────────────── */
+.float-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* ── DATA BAR ANIMATION ───────────────────────────────────── */
+.data-fill {
+  animation: data-fill-grow 1.5s cubic-bezier(0.23, 1, 0.32, 1) 0.8s both;
+  transform-origin: left;
+}
+@keyframes data-fill-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── VISION PILLAR HOVER NUM ──────────────────────────────── */
+.vpillar:hover .vpillar-num {
+  color: rgba(201,127,82,0.5);
+  transition: color 0.3s ease;
+}
+
+/* ── ABOUT TAG HOVER ──────────────────────────────────────── */
+.tag {
+  cursor: default;
+  transition: all 0.25s ease;
+}
+.tag:hover {
+  background: rgba(201,127,82,0.15);
+  border-color: rgba(201,127,82,0.4);
+  transform: translateY(-2px);
+}
+
+/* ── CODE WINDOW TERMINAL GLOW ────────────────────────────── */
+.code-window {
+  position: relative;
+}
+.code-window::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(201,127,82,0.03), transparent);
+  pointer-events: none;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+/* ── ENHANCED MOBILE INTERACTIONS ────────────────────────── */
+@media (hover: none) {
+  .glass-card:hover { transform: none; }
+  .product-card { transform: none !important; }
+  .why-card:hover .why-icon { transform: none; }
+}
+
+/* ── LOADING SKELETON FOR IMAGES ─────────────────────────── */
+.logo-img {
+  animation: logo-entrance 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
+}
+@keyframes logo-entrance {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── PRODUCT NAME ENHANCED ────────────────────────────────── */
+.product-name {
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 30px rgba(201,127,82,0.3);
+}
+
+/* ── OQMEGA SECTION TITLE GLOW ────────────────────────────── */
+.oqmega-section .section-title {
+  text-shadow: 0 0 60px rgba(111,29,27,0.3);
+}
+
+/* ── CONTACT BLOCK ENHANCED ───────────────────────────────── */
+.contact-block {
+  padding: 28px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,127,82,0.1);
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.contact-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--copper), var(--red-mid));
+  border-radius: 3px 0 0 3px;
+}
+
+/* ── ABOUT SECTION SUBTLE GRID ────────────────────────────── */
+.about-section {
+  background-image: 
+    linear-gradient(var(--bg-1) 0%, var(--bg-1) 100%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(201,127,82,0.05) 0%, transparent 60%);
+}
+
+/* ── RETINA DISPLAY RING PULSE ────────────────────────────── */
+.retina-img-mock {
+  animation: retina-pulse 3s ease-in-out infinite;
+}
+@keyframes retina-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(201,127,82,0); }
+  50%      { box-shadow: 0 0 0 8px rgba(201,127,82,0.1); }
+}
+
+/* ── SCROLL INDICATOR ENHANCED ───────────────────────────── */
+.hero-scroll-indicator {
+  z-index: 10;
+}
+
+/* ── SECTION LABEL ENHANCED ───────────────────────────────── */
+.section-label {
+  transition: all 0.3s ease;
+}
+.section-label:hover {
+  background: rgba(201,127,82,0.15);
+  border-color: rgba(201,127,82,0.4);
+}
+
+/* ── PAGE TRANSITION FADE ─────────────────────────────────── */
+body {
+  animation: page-fade-in 0.5s ease forwards;
+}
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── HERO STATS HOVER ─────────────────────────────────────── */
+.hero-stat {
+  cursor: default;
+  transition: transform 0.3s ease;
+}
+.hero-stat:hover { transform: scale(1.05); }
+.hero-stat:hover .stat-num {
+  color: var(--copper-light);
+  text-shadow: 0 0 20px rgba(224,163,122,0.5);
+}
+
+/* ── PRODUCT BADGE ENHANCED ───────────────────────────────── */
+.product-badge {
+  transition: all 0.25s ease;
+}
+.product-card:hover .product-badge {
+  background: rgba(201,127,82,0.08);
+  border-color: rgba(201,127,82,0.25);
+  color: var(--copper-light);
+}
+.product-card:hover .badge-icon {
+  color: var(--copper-light);
+}
+
+/* ── WHY CARD HOVER LINE ──────────────────────────────────── */
+.why-card {
+  position: relative;
+  overflow: hidden;
+}
+.why-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red-mid), var(--copper));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.why-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── PRODUCT TITLE ENHANCED ───────────────────────────────── */
+.product-title {
+  transition: color 0.3s ease;
+}
+.product-card:hover .product-title {
+  color: var(--copper-light);
+}
+
+/* ── OQMEGA STATS PANEL ENHANCED ─────────────────────────── */
+.rs-bar {
+  position: relative;
+  overflow: visible;
+}
+.rs-bar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--copper-light);
+  box-shadow: 0 0 8px rgba(224,163,122,0.6);
+}
+
+/* ── VISION QUOTE ENHANCED ────────────────────────────────── */
+.vision-quote {
+  padding: 40px;
+  background: rgba(201,127,82,0.04);
+  border: 1px solid rgba(201,127,82,0.12);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+.vision-quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,127,82,0.4), transparent);
+}
+.vision-quote::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,127,82,0.2), transparent);
+}
+
+/* ── AI CONF ENHANCED ─────────────────────────────────────── */
+.ai-conf {
+  background: rgba(62,207,142,0.06);
+  border: 1px solid rgba(62,207,142,0.15);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.68rem;
+}
+
+/* ── FORM SUCCESS ANIMATION ───────────────────────────────── */
+.form-success {
+  animation: success-slide 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes success-slide {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── HERO CTA BUTTONS ENHANCED ────────────────────────────── */
+.btn-primary, .btn-secondary {
+  letter-spacing: 0.02em;
+}
+
+/* ── HERO SECTION GRID LINES (SUBTLE) ────────────────────── */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(201,127,82,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,127,82,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* ── SECTION TRANSITION OVERRIDE ─────────────────────────── */
+section {
+  position: relative;
+}
+
+/* ── GLASS CARD INNER LIGHT ───────────────────────────────── */
+.about-card,
+.pillar-card,
+.why-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.04) 0%,
+    rgba(255,255,255,0.02) 50%,
+    rgba(201,127,82,0.02) 100%
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FINAL PRODUCTION POLISH
+══════════════════════════════════════════════════════════════ */
+
+/* ── SECTION AMBIENT DEPTH ────────────────────────────────── */
+.products-section {
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    rgba(111,29,27,0.06) 0%,
+    transparent 70%
+  ), var(--bg-0);
+}
+
+.why-section {
+  background: radial-gradient(
+    ellipse 80% 50% at 0% 50%,
+    rgba(201,127,82,0.04) 0%,
+    transparent 60%
+  ),
+  radial-gradient(
+    ellipse 60% 50% at 100% 50%,
+    rgba(111,29,27,0.06) 0%,
+    transparent 60%
+  ), var(--bg-0);
+}
+
+/* ── OQfy PRODUCT CARD SPECIAL GLOW ──────────────────────── */
+#oqfy-card:hover {
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(201,127,82,0.12);
+}
+
+/* ── OQgen PRODUCT CARD SPECIAL GLOW ─────────────────────── */
+#oqgen-card:hover {
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(111,29,27,0.2);
+}
+
+/* ── HERO FLOATING PANEL DEPTH ────────────────────────────── */
+.float-panel {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,127,82,0.12) inset;
+}
+
+/* ── ANIMATED GRADIENT BG FOR HERO ───────────────────────── */
+.hero-section {
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(111,29,27,0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 85% 90%, rgba(201,127,82,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 15% 80%, rgba(111,29,27,0.06) 0%, transparent 50%),
+    var(--bg-0);
+}
+
+/* ── NAVBAR LOGO GLOW ─────────────────────────────────────── */
+.nav-logo:hover .logo-img {
+  filter: drop-shadow(0 0 14px rgba(201,127,82,0.5));
+  transition: filter 0.3s ease;
+}
+
+/* ── ABOUT SECTION ENHANCED ───────────────────────────────── */
+.about-section {
+  background: 
+    radial-gradient(ellipse 60% 50% at 90% 20%, rgba(201,127,82,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(111,29,27,0.05) 0%, transparent 60%),
+    var(--bg-1);
+}
+
+/* ── SECTION TITLE WORD GRADIENT ──────────────────────────── */
+.about-section .section-title,
+.products-section .section-title,
+.why-section .section-title,
+.contact-section .section-title {
+  background: linear-gradient(180deg, var(--text-1) 0%, rgba(245,245,245,0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.about-section .section-title .gradient-text,
+.products-section .section-title .gradient-text,
+.why-section .section-title .gradient-text,
+.contact-section .section-title .gradient-text {
+  background: linear-gradient(135deg, var(--copper-light) 0%, var(--copper) 40%, var(--red-accent) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: copper-shimmer 4s linear infinite;
+}
+
+/* ── VISION SECTION DEPTH ─────────────────────────────────── */
+.vision-section {
+  background: 
+    radial-gradient(ellipse 80% 70% at 50% 50%, rgba(111,29,27,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,127,82,0.06) 0%, transparent 50%),
+    var(--bg-0);
+}
+
+/* ── FOOTER DEPTH ─────────────────────────────────────────── */
+.footer {
+  background: 
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,127,82,0.04) 0%, transparent 60%),
+    var(--bg-0);
+}
+
+/* ── OQMEGA SECTION DEPTH ─────────────────────────────────── */
+.oqmega-section {
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 50%, rgba(111,29,27,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 30%, rgba(201,127,82,0.05) 0%, transparent 60%),
+    var(--bg-1);
+}
+
+/* ── CONTACT SECTION DEPTH ────────────────────────────────── */
+.contact-section {
+  background:
+    radial-gradient(ellipse 70% 60% at 70% 50%, rgba(201,127,82,0.05) 0%, transparent 70%),
+    var(--bg-1);
+}
+
+/* ── PILLAR ICON HOVER GLOW ───────────────────────────────── */
+.pillar-card:hover .pillar-icon {
+  box-shadow: 0 0 24px rgba(201,127,82,0.35);
+  border-color: rgba(201,127,82,0.4);
+  background: linear-gradient(135deg, rgba(201,127,82,0.2), rgba(111,29,27,0.3));
+}
+
+/* ── TEAM CARD HOLOGRAM INNER GLOW ───────────────────────── */
+.team-card:hover .team-avatar {
+  box-shadow: 0 0 20px rgba(201,127,82,0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+/* ── VISION PILLARS ENHANCED ──────────────────────────────── */
+.vpillar:hover .vpillar-num {
+  color: rgba(201,127,82,0.6);
+  text-shadow: 0 0 20px rgba(201,127,82,0.3);
+}
+
+/* ── FOOTER LINKS HOVER LINE ──────────────────────────────── */
+.footer-links-col a {
+  position: relative;
+  display: inline-block;
+}
+.footer-links-col a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--copper);
+  transition: width 0.3s ease;
+}
+.footer-links-col a:hover::after { width: 100%; }
+
+/* ── QUEUE ITEM ACTIVE PULSE ──────────────────────────────── */
+.queue-item.active {
+  animation: active-pulse 2s ease-in-out infinite;
+}
+@keyframes active-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(201,127,82,0); }
+  50%      { box-shadow: 0 0 0 3px rgba(201,127,82,0.15); }
+}
+
+/* ── AI DETECTION BOX CORNERS ─────────────────────────────── */
+.ai-detection-box::before,
+.ai-detection-box::after {
+  content: '';
+  position: absolute;
+  width: 6px; height: 6px;
+  border-color: var(--copper-light);
+  border-style: solid;
+}
+.ai-detection-box::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.ai-detection-box::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+/* ── SECTION LABEL GLOW ON HOVER ──────────────────────────── */
+.section-label:hover {
+  box-shadow: 0 0 12px rgba(201,127,82,0.2);
+}
+
+/* ── SMOOTH CANVAS FADE IN ────────────────────────────────── */
+.neural-canvas,
+.oqmega-canvas,
+.vision-canvas {
+  animation: canvas-fade-in 2s ease 0.5s both;
+}
+@keyframes canvas-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.neural-canvas  { animation-name: canvas-fade-in; --target-opacity: 0.5; }
+.oqmega-canvas  { animation-name: canvas-fade-in; --target-opacity: 0.35; }
+.vision-canvas  { animation-name: canvas-fade-in; --target-opacity: 1; }
+
+/* ── PRODUCT FEATURES GRID ────────────────────────────────── */
+.product-features {
+  padding: 16px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+/* ── MOCKUP SCREEN DEPTH ──────────────────────────────────── */
+.mockup-screen {
+  transition: box-shadow 0.4s ease;
+}
+.product-card:hover .mockup-screen {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 20px rgba(201,127,82,0.1);
+}
+
+/* ── SCROLL PROGRESS GLOW ─────────────────────────────────── */
+#scrollProgress {
+  box-shadow: 0 0 12px rgba(201,127,82,0.6), 0 0 4px rgba(224,163,122,0.8);
+}
+
+/* ── HERO TITLE REFINED ───────────────────────────────────── */
+.hero-title {
+  text-shadow: 0 2px 40px rgba(0,0,0,0.4);
+}
+
+/* ── BODY CURSOR ──────────────────────────────────────────── */
+body { cursor: default; }
+a, button, [role="button"] { cursor: pointer; }
+
+/* ── SELECTION COLOR ──────────────────────────────────────── */
+::selection {
+  background: rgba(201,127,82,0.35);
+  color: var(--copper-light);
+}
+
+/* ── FINAL RESPONSIVE TWEAKS ──────────────────────────────── */
+@media (max-width: 640px) {
+  .hero-title { font-size: clamp(2.2rem, 9vw, 3rem); }
+  .vision-title { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .hero-stats { flex-direction: column; gap: 12px; }
+  .stat-divider { width: 80px; height: 1px; }
+  .float-panel { display: none; }
+  .trust-bar { display: none; }
+  .about-text { padding: 0; }
+  .oqmega-intro { display: none; }
+  .oqmega-code-section { display: none; }
+  .vision-quote { padding: 24px; }
+  blockquote { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .section-padding { padding: 60px 0; }
+  .product-card { padding: 24px; }
+  .contact-form { padding: 24px; }
+  .about-stats-bar { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1400px) {
+  .container { max-width: 1340px; }
+  .hero-title { font-size: 5.5rem; }
+}
+
