@@ -381,34 +381,37 @@ function initContactForm() {
     const btn = form.querySelector('button[type="submit"]');
     const originalHTML = btn.innerHTML;
     const data = new FormData(form);
-    const fname = (data.get('fname') || '').toString().trim();
-    const lname = (data.get('lname') || '').toString().trim();
-    const email = (data.get('email') || '').toString().trim();
-    const org = (data.get('org') || '').toString().trim();
     const interest = (data.get('interest') || '').toString().trim();
-    const message = (data.get('message') || '').toString().trim();
 
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Sending...</span>';
     btn.disabled = true;
 
-    const subject = encodeURIComponent(`OQTEX Website Inquiry${interest ? ` - ${interest}` : ''}`);
-    const body = encodeURIComponent(
-      `Name: ${fname} ${lname}`.trim() + '\n' +
-      `Email: ${email}\n` +
-      `Organization: ${org || 'N/A'}\n` +
-      `Interest: ${interest || 'N/A'}\n\n` +
-      `Message:\n${message || 'N/A'}`
-    );
+    data.set('_subject', `OQTEX Website Inquiry${interest ? ` - ${interest}` : ''}`);
 
-    await new Promise(r => setTimeout(r, 500));
-    window.location.href = `mailto:oqtex.llc@gmail.com?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-    btn.innerHTML = originalHTML;
-    btn.disabled = false;
-    form.reset();
-    if (success) {
-      success.style.display = 'flex';
-      setTimeout(() => { success.style.display = 'none'; }, 5000);
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      btn.innerHTML = originalHTML;
+      btn.disabled = false;
+      form.reset();
+
+      if (success) {
+        success.style.display = 'flex';
+        setTimeout(() => { success.style.display = 'none'; }, 5000);
+      }
+    } catch (error) {
+      btn.innerHTML = '<i class="fas fa-circle-exclamation"></i><span>Try Again</span>';
+      btn.disabled = false;
     }
   });
 }
