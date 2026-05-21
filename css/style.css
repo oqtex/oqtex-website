@@ -686,21 +686,24 @@ body {
 
 /* Stats bar */
 .about-stats-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(201,127,82,0.15);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: 32px 40px;
+  backdrop-filter: blur(16px);
 }
 .astat {
-  padding: 32px 24px;
+  padding: 0 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border-right: 1px solid rgba(201,127,82,0.1);
+  border-right: 1px solid rgba(201,127,82,0.15);
   transition: background 0.3s;
 }
 .astat:last-child { border-right: none; }
