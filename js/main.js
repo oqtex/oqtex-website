@@ -35,19 +35,29 @@ function initNavbar() {
     });
   });
 
-  // Active link on scroll
+  // Active link on scroll (Scrollspy)
   const sections = $$('section[id]');
   const navLinks = $$('.nav-link');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        const active = navLinks.find(l => l.getAttribute('href') === `#${e.target.id}`);
-        if (active) active.classList.add('active');
+
+  function updateActiveLink() {
+    let activeId = "";
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      // If the section top is above the 200px mark from viewport top
+      if (rect.top <= 200) {
+        activeId = section.id;
       }
     });
-  }, { threshold: 0.4 });
-  sections.forEach(s => observer.observe(s));
+
+    if (activeId) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${activeId}`);
+      });
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink(); // Initial check
 }
 
 /* ── NEURAL NETWORK CANVAS (HERO) ───────────────────────────── */
@@ -370,19 +380,36 @@ function initContactForm() {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     const originalHTML = btn.innerHTML;
+    const data = new FormData(form);
+    const fname = (data.get('fname') || '').toString().trim();
+    const lname = (data.get('lname') || '').toString().trim();
+    const email = (data.get('email') || '').toString().trim();
+    const org = (data.get('org') || '').toString().trim();
+    const interest = (data.get('interest') || '').toString().trim();
+    const message = (data.get('message') || '').toString().trim();
 
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Sending...</span>';
     btn.disabled = true;
 
-    // Simulate sending (replace with actual API call)
-    await new Promise(r => setTimeout(r, 1500));
+    const subject = encodeURIComponent(`OQTEX Website Inquiry${interest ? ` - ${interest}` : ''}`);
+    const body = encodeURIComponent(
+      `Name: ${fname} ${lname}`.trim() + '\n' +
+      `Email: ${email}\n` +
+      `Organization: ${org || 'N/A'}\n` +
+      `Interest: ${interest || 'N/A'}\n\n` +
+      `Message:\n${message || 'N/A'}`
+    );
 
-    // Show success
+    await new Promise(r => setTimeout(r, 500));
+    window.location.href = `mailto:oqtex.llc@gmail.com?subject=${subject}&body=${body}`;
+
     btn.innerHTML = originalHTML;
     btn.disabled = false;
     form.reset();
-    success.style.display = 'flex';
-    setTimeout(() => { success.style.display = 'none'; }, 5000);
+    if (success) {
+      success.style.display = 'flex';
+      setTimeout(() => { success.style.display = 'none'; }, 5000);
+    }
   });
 }
 
@@ -552,23 +579,6 @@ function initOqmegaRings() {
 }
 
 /* ── NAV LINK ACTIVE STYLE ──────────────────────────────────── */
-function addNavActiveStyle() {
-  const style = document.createElement('style');
-  style.textContent = `
-    .nav-link.active {
-      color: var(--copper-light) !important;
-      background: rgba(201,127,82,0.1) !important;
-    }
-    .feat-item {
-      transition: color 0.25s ease;
-    }
-    .feat-item i {
-      transition: transform 0.25s ease;
-    }
-  `;
-  document.head.appendChild(style);
-}
-
 /* ── MOBILE TOUCH PARALLAX FALLBACK ────────────────────────── */
 function initMobileOptimize() {
   if (window.matchMedia('(max-width: 768px)').matches) {
@@ -722,24 +732,6 @@ function initWhyCardStagger() {
 }
 
 /* ── ABOUT STATS BAR HOVER ──────────────────────────────────── */
-function initAboutStatsHover() {
-  $$('.astat').forEach(stat => {
-    stat.addEventListener('mouseenter', () => {
-      const num = stat.querySelector('.astat-num');
-      if (num) num.style.transform = 'scale(1.1)';
-    });
-    stat.addEventListener('mouseleave', () => {
-      const num = stat.querySelector('.astat-num');
-      if (num) num.style.transform = 'scale(1)';
-    });
-  });
-
-  // Add transition style
-  const style = document.createElement('style');
-  style.textContent = `.astat-num { transition: transform 0.3s ease; display: inline-block; }`;
-  document.head.appendChild(style);
-}
-
 /* ── VISION QUOTE TYPING ────────────────────────────────────── */
 function initVisionQuote() {
   const quote = $('blockquote');
@@ -785,7 +777,6 @@ function initGlassBorderPulse() {
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
   initFavicon();
-  addNavActiveStyle();
   initCinematicEntrance();
   initNavbar();
   initSmoothScroll();
@@ -808,7 +799,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductGlowFollow();
   initOqmegaRings();
   initWhyCardStagger();
-  initAboutStatsHover();
   initVisionQuote();
   initGlassBorderPulse();
   initScrollProgress();
