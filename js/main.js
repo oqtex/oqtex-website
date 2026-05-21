@@ -38,28 +38,26 @@ function initNavbar() {
   // Active link on scroll
   const sections = $$('section[id]');
   const navLinks = $$('.nav-link');
-  
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -70% 0px', // Detects section when it's in the top-ish part of the viewport
-    threshold: 0
-  };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.scrollY + 150; // Offset for navbar height and buffer
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
       }
     });
-  }, observerOptions);
 
-  sections.forEach(section => observer.observe(section));
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  }, { passive: true });
 }
 
 /* ── NEURAL NETWORK CANVAS (HERO) ───────────────────────────── */
