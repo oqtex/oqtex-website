@@ -776,6 +776,97 @@ function initGlassBorderPulse() {
   document.head.appendChild(style);
 }
 
+/* ── NEWS CAROUSEL ───────────────────────────────────────────── */
+function initNewsCarousel() {
+  const carousel = $('#newsCarousel');
+  if (!carousel) return;
+
+  const track = $('.news-track', carousel);
+  const slides = $$('.news-slide', carousel);
+  const dots = $$('.news-dot', carousel);
+  const prevBtn = $('.news-nav-btn.prev', carousel);
+  const nextBtn = $('.news-nav-btn.next', carousel);
+  let current = 0;
+
+  function updateCarousel() {
+    if (!track || !slides.length) return;
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === current);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === current);
+      dot.setAttribute('aria-selected', index === current ? 'true' : 'false');
+    });
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    updateCarousel();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      current = index;
+      updateCarousel();
+    });
+  });
+
+  updateCarousel();
+}
+
+/* ── NEWS GALLERIES ─────────────────────────────────────────── */
+function initNewsGalleries() {
+  $$('.news-gallery').forEach(gallery => {
+    const track = $('.news-gallery-track', gallery);
+    const slides = $$('.news-gallery-slide', gallery);
+    const dots = $$('.news-gallery-dot', gallery);
+    const prevBtn = $('.news-gallery-btn.prev', gallery);
+    const nextBtn = $('.news-gallery-btn.next', gallery);
+    let current = 0;
+
+    function updateGallery() {
+      if (!track || !slides.length) return;
+      track.style.transform = `translateX(-${current * 100}%)`;
+
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === current);
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === current);
+        dot.setAttribute('aria-selected', index === current ? 'true' : 'false');
+      });
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      updateGallery();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      updateGallery();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        current = index;
+        updateGallery();
+      });
+    });
+
+    updateGallery();
+  });
+}
+
 /* ── INIT ALL ───────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
@@ -804,6 +895,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initWhyCardStagger();
   initVisionQuote();
   initGlassBorderPulse();
+  initNewsCarousel();
+  initNewsGalleries();
   initScrollProgress();
   initHeroEntrance();
   initColorTrails();

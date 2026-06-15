@@ -908,88 +908,232 @@
         A new space for product milestones, company updates, and media appearances across the region.
       </p>
 
-      <article class="news-feature glass-card reveal-up delay-3" aria-labelledby="featured-news-title">
-        <div class="news-feature-media">
-          <div class="news-media-top">
-            <span class="news-pill">
-              <i class="fas fa-newspaper"></i>
-              <span>Featured Story</span>
-            </span>
-            <span class="news-source">
-              <i class="fas fa-radio"></i>
-              <span>EL-RADIO 9090 · Yalla Bena</span>
-            </span>
+      <div class="news-carousel glass-card reveal-up delay-3" id="newsCarousel" aria-label="OQTEX news carousel">
+        <div class="news-viewport">
+          <div class="news-track">
+            <article class="news-slide active" aria-labelledby="featured-news-title">
+              <div class="news-feature">
+                <div class="news-feature-media">
+                  <div class="news-media-top">
+                    <span class="news-pill">
+                      <i class="fas fa-newspaper"></i>
+                      <span>Featured Story</span>
+                    </span>
+                    <span class="news-source">
+                      <i class="fas fa-radio"></i>
+                      <span>EL-RADIO 9090 · Yalla Bena</span>
+                    </span>
+                  </div>
+
+                  <a
+                    href="https://youtu.be/PzsOktRg1FQ?si=AGJQPwEc3kn0OFDL"
+                    class="news-video-shell"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open the OQTEX founders interview on YouTube"
+                  >
+                    <img
+                      src="https://i.ytimg.com/vi/PzsOktRg1FQ/maxresdefault.jpg"
+                      srcset="https://i.ytimg.com/vi/PzsOktRg1FQ/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/PzsOktRg1FQ/sddefault.jpg 640w"
+                      sizes="(max-width: 900px) 100vw, 50vw"
+                      alt="Thumbnail for the OQTEX co-founders interview on Yalla Bena"
+                      loading="lazy"
+                      onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/PzsOktRg1FQ/hqdefault.jpg';"
+                    />
+                    <span class="news-video-overlay">
+                      <span class="news-play-button" aria-hidden="true">
+                        <i class="fas fa-play"></i>
+                      </span>
+                      <span class="news-video-text">
+                        Watch on YouTube
+                      </span>
+                    </span>
+                  </a>
+
+                  <p class="news-caption">
+                    First media appearance featuring Dr. Ahmed Fayez and Dr. Mohamed Essam, co-founders of OQTEX, on "Yalla Bena" with Radwa Hassan.
+                  </p>
+                </div>
+
+                <div class="news-feature-content">
+                  <div class="news-kicker">First Founder Radio Appearance</div>
+                  <h3 id="featured-news-title" class="news-title">
+                    OQTEX Co-Founders Join "Yalla Bena" for Their First Radio Show Appearance
+                  </h3>
+                  <p class="news-body">
+                    Dr. Ahmed Fayez and Dr. Mohamed Essam, the co-founders of OQTEX, were featured on "Yalla Bena" with Radwa Hassan on EL-RADIO 9090 in their first radio appearance as founders of the company.
+                  </p>
+                  <p class="news-body">
+                    The conversation highlights OQTEX's mission to advance ophthalmology through AI-powered infrastructure, regional innovation, and clinically grounded technology built for real-world eye care.
+                  </p>
+
+                  <div class="news-highlights" aria-label="Story highlights">
+                    <div class="news-highlight">
+                      <span class="news-highlight-label">Who</span>
+                      <p>Dr. Ahmed Fayez and Dr. Mohamed Essam, co-founders of OQTEX.</p>
+                    </div>
+                    <div class="news-highlight">
+                      <span class="news-highlight-label">Where</span>
+                      <p>"Yalla Bena" radio show with Radwa Hassan on EL-RADIO 9090.</p>
+                    </div>
+                    <div class="news-highlight">
+                      <span class="news-highlight-label">Why It Matters</span>
+                      <p>A public milestone that introduces the people and vision behind OQTEX to a wider audience.</p>
+                    </div>
+                  </div>
+
+                  <div class="news-actions">
+                    <a href="https://youtu.be/PzsOktRg1FQ?si=AGJQPwEc3kn0OFDL" class="btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Watch the OQTEX founders interview on YouTube">
+                      <span>Watch The Interview</span>
+                      <i class="fas fa-play"></i>
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                      <span>Connect With OQTEX</span>
+                      <i class="fas fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="news-slide" aria-labelledby="hackathon-news-title">
+              <div class="news-feature">
+                <div class="news-feature-media">
+                  <div class="news-media-top">
+                    <span class="news-pill">
+                      <i class="fas fa-trophy"></i>
+                      <span>Award Highlight</span>
+                    </span>
+                    <span class="news-source">
+                      <i class="fas fa-calendar-days"></i>
+                      <span>December 2025 · Cairo AI Hackathon</span>
+                    </span>
+                  </div>
+
+                  <div class="news-gallery" data-news-gallery aria-label="Cairo AI Hackathon image gallery">
+                    <div class="news-gallery-viewport">
+                      <div class="news-gallery-track">
+                        <figure class="news-gallery-slide active">
+                          <img src="images/cairo-ai-hackathon-01.jpg" alt="OQmega Team presenting Neural Ocular Network (NON) at the Cairo AI Hackathon" loading="lazy" />
+                          <figcaption class="news-gallery-overlay">
+                            <span class="news-gallery-tag">OQmega Team</span>
+                            <span class="news-gallery-meta">NON / OQgen · ROP Detection</span>
+                          </figcaption>
+                        </figure>
+                        <figure class="news-gallery-slide">
+                          <img src="images/cairo-ai-hackathon-02.jpg" alt="OQmega Team members during the Cairo AI Hackathon event" loading="lazy" />
+                          <figcaption class="news-gallery-overlay">
+                            <span class="news-gallery-tag">Cairo AI Hackathon</span>
+                            <span class="news-gallery-meta">150,000 EGP · First Place</span>
+                          </figcaption>
+                        </figure>
+                        <figure class="news-gallery-slide">
+                          <img src="images/cairo-ai-hackathon-03.jpg" alt="OQmega Team after winning first place at the Cairo AI Hackathon" loading="lazy" />
+                          <figcaption class="news-gallery-overlay">
+                            <span class="news-gallery-tag">Winning Project</span>
+                            <span class="news-gallery-meta">Neural Ocular Network (NON)</span>
+                          </figcaption>
+                        </figure>
+                        <figure class="news-gallery-slide">
+                          <img src="images/cairo-ai-hackathon-04.jpg" alt="Hackathon moment featuring the OQmega Team and OQgen project" loading="lazy" />
+                          <figcaption class="news-gallery-overlay">
+                            <span class="news-gallery-tag">OQgen</span>
+                            <span class="news-gallery-meta">ROP detection in less than 2 seconds</span>
+                          </figcaption>
+                        </figure>
+                      </div>
+
+                      <button class="news-gallery-btn prev" type="button" aria-label="Previous hackathon image">
+                        <i class="fas fa-chevron-left"></i>
+                      </button>
+                      <button class="news-gallery-btn next" type="button" aria-label="Next hackathon image">
+                        <i class="fas fa-chevron-right"></i>
+                      </button>
+                    </div>
+
+                    <div class="news-gallery-dots" role="tablist" aria-label="Hackathon gallery navigation">
+                      <button class="news-gallery-dot active" type="button" aria-label="Show hackathon image 1"></button>
+                      <button class="news-gallery-dot" type="button" aria-label="Show hackathon image 2"></button>
+                      <button class="news-gallery-dot" type="button" aria-label="Show hackathon image 3"></button>
+                      <button class="news-gallery-dot" type="button" aria-label="Show hackathon image 4"></button>
+                    </div>
+                  </div>
+
+                  <p class="news-caption">
+                    The OQmega Team won first place and a 150,000 EGP prize at Cairo AI Hackathon with Neural Ocular Network (NON), named OQgen.
+                  </p>
+                </div>
+
+                <div class="news-feature-content">
+                  <div class="news-kicker">First Place Winner</div>
+                  <h3 id="hackathon-news-title" class="news-title">
+                    OQmega Team Wins First Place and 150,000 EGP at Cairo AI Hackathon
+                  </h3>
+                  <p class="news-body">
+                    In December 2025, the OQmega Team won first place at Cairo AI Hackathon and received a 150,000 EGP prize, marking a major achievement for OQTEX's applied AI and research capabilities.
+                  </p>
+                  <p class="news-body">
+                    The winning project was Neural Ocular Network (NON), named OQgen, an AI system that can detect Retinopathy Of Prematurity (ROP) in newborns in less than 2 seconds.
+                  </p>
+                  <p class="news-body">
+                    The hackathon was organized by Athar Accelerator and sponsored by Plan International Egypt, creating a strong platform for showcasing high-impact Egyptian AI innovation.
+                  </p>
+
+                  <div class="news-highlights" aria-label="Hackathon highlights">
+                    <div class="news-highlight">
+                      <span class="news-highlight-label">Prize</span>
+                      <p>First place with a 150,000 EGP award.</p>
+                    </div>
+                    <div class="news-highlight">
+                      <span class="news-highlight-label">Event</span>
+                      <p>Cairo AI Hackathon, organized by Athar Accelerator and sponsored by Plan International Egypt.</p>
+                    </div>
+                    <div class="news-highlight">
+                      <span class="news-highlight-label">Project</span>
+                      <p>Neural Ocular Network (NON), named OQgen, for rapid Retinopathy Of Prematurity screening.</p>
+                    </div>
+                    <div class="news-highlight">
+                      <span class="news-highlight-label">Performance</span>
+                      <p>Detects ROP in newborns in less than 2 seconds.</p>
+                    </div>
+                    <div class="news-highlight">
+                      <span class="news-highlight-label">Why It Matters</span>
+                      <p>A strong public validation of the OQmega Team, OQgen, and OQTEX's ability to turn clinical AI research into high-impact solutions.</p>
+                    </div>
+                  </div>
+
+                  <div class="news-actions">
+                    <a href="#oqmega" class="btn-primary">
+                      <span>Explore OQmega</span>
+                      <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                      <span>Partner With OQTEX</span>
+                      <i class="fas fa-handshake"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
-
-          <a
-            href="https://youtu.be/PzsOktRg1FQ?si=AGJQPwEc3kn0OFDL"
-            class="news-video-shell"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the OQTEX founders interview on YouTube"
-          >
-            <img
-              src="https://i.ytimg.com/vi/PzsOktRg1FQ/maxresdefault.jpg"
-              srcset="https://i.ytimg.com/vi/PzsOktRg1FQ/maxresdefault.jpg 1280w, https://i.ytimg.com/vi/PzsOktRg1FQ/sddefault.jpg 640w"
-              sizes="(max-width: 900px) 100vw, 50vw"
-              alt="Thumbnail for the OQTEX co-founders interview on Yalla Bena"
-              loading="lazy"
-              onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/PzsOktRg1FQ/hqdefault.jpg';"
-            />
-            <span class="news-video-overlay">
-              <span class="news-play-button" aria-hidden="true">
-                <i class="fas fa-play"></i>
-              </span>
-              <span class="news-video-text">
-                Watch on YouTube
-              </span>
-            </span>
-          </a>
-
-          <p class="news-caption">
-            First media appearance featuring Dr. Ahmed Fayez and Dr. Mohamed Essam, co-founders of OQTEX, on "Yalla Bena" with Radwa Hassan.
-          </p>
         </div>
 
-        <div class="news-feature-content">
-          <div class="news-kicker">First Founder Radio Appearance</div>
-          <h3 id="featured-news-title" class="news-title">
-            OQTEX Co-Founders Join "Yalla Bena" for Their First Radio Show Appearance
-          </h3>
-          <p class="news-body">
-            Dr. Ahmed Fayez and Dr. Mohamed Essam, the co-founders of OQTEX, were featured on "Yalla Bena" with Radwa Hassan on EL-RADIO 9090 in their first radio appearance as founders of the company.
-          </p>
-          <p class="news-body">
-            The conversation highlights OQTEX's mission to advance ophthalmology through AI-powered infrastructure, regional innovation, and clinically grounded technology built for real-world eye care.
-          </p>
-
-          <div class="news-highlights" aria-label="Story highlights">
-            <div class="news-highlight">
-              <span class="news-highlight-label">Who</span>
-              <p>Dr. Ahmed Fayez and Dr. Mohamed Essam, co-founders of OQTEX.</p>
-            </div>
-            <div class="news-highlight">
-              <span class="news-highlight-label">Where</span>
-              <p>"Yalla Bena" radio show with Radwa Hassan on EL-RADIO 9090.</p>
-            </div>
-            <div class="news-highlight">
-              <span class="news-highlight-label">Why It Matters</span>
-              <p>A public milestone that introduces the people and vision behind OQTEX to a wider audience.</p>
-            </div>
+        <div class="news-carousel-controls">
+          <div class="news-carousel-dots" role="tablist" aria-label="News story navigation">
+            <button class="news-dot active" type="button" aria-label="Show news story 1"></button>
+            <button class="news-dot" type="button" aria-label="Show news story 2"></button>
           </div>
 
-          <div class="news-actions">
-            <a href="https://youtu.be/PzsOktRg1FQ?si=AGJQPwEc3kn0OFDL" class="btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Watch the OQTEX founders interview on YouTube">
-              <span>Watch The Interview</span>
-              <i class="fas fa-play"></i>
-            </a>
-            <a href="#contact" class="btn-secondary">
-              <span>Connect With OQTEX</span>
+          <div class="news-nav">
+            <button class="news-nav-btn prev" type="button" aria-label="Previous news story">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="news-nav-btn next" type="button" aria-label="Next news story">
               <i class="fas fa-arrow-right"></i>
-            </a>
+            </button>
           </div>
         </div>
-      </article>
+      </div>
     </div>
   </section>
 
