@@ -904,6 +904,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductDeepGlow();
   initTrustBarHover();
   initFooterReveal();
+  initVideoLightbox();
 
   // Set initial nav state
   if (window.scrollY > 30) {
@@ -1056,6 +1057,73 @@ function initScrollProgress() {
     const progress = docHeight > 0 ? scrollTop / docHeight : 0;
     bar.style.transform = `scaleX(${progress})`;
   }, { passive: true });
+}
+
+/* ── VIDEO LIGHTBOX MODAL ───────────────────────────────────── */
+function initVideoLightbox() {
+  const modal = $('#videoLightbox');
+  if (!modal) return;
+
+  const closeBtn = modal.querySelector('.video-lightbox-close');
+  const overlay = modal.querySelector('.video-lightbox-overlay');
+  const wrapper = modal.querySelector('.video-lightbox-wrapper');
+  const triggers = $$('[data-video-id]');
+
+  function openVideo(videoId) {
+    // Generate YouTube privacy-enhanced embed URL
+    const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`;
+    
+    // Inject iframe dynamically
+    wrapper.innerHTML = `
+      <iframe 
+        src="${embedUrl}" 
+        title="Video Player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    `;
+
+    // Show modal
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // Lock background scroll
+
+    // Focus close button for accessibility
+    closeBtn.focus();
+  }
+
+  function closeVideo() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = ''; // Restore background scroll
+    
+    // Clear iframe to stop playback immediately
+    setTimeout(() => {
+      wrapper.innerHTML = '';
+    }, 400); // Wait for transition fade out to finish
+  }
+
+  // Bind click handlers to triggers
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      const videoId = trigger.getAttribute('data-video-id');
+      if (videoId) {
+        e.preventDefault();
+        openVideo(videoId);
+      }
+    });
+  });
+
+  // Bind close events
+  closeBtn.addEventListener('click', closeVideo);
+  overlay.addEventListener('click', closeVideo);
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeVideo();
+    }
+  });
 }
 
 /* ── WINDOW EVENTS ──────────────────────────────────────────── */
