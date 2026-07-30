@@ -68,7 +68,7 @@
 
 .oqmega-team-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   position: relative;
   z-index: 2;
@@ -123,10 +123,18 @@
   font-size: 2rem;
   position: relative;
 }
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
 .ta-1 { background: linear-gradient(135deg, rgba(111,29,27,0.6), rgba(201,127,82,0.4)); color: var(--copper-light); }
 .ta-2 { background: linear-gradient(135deg, rgba(141,42,42,0.6), rgba(163,58,58,0.4)); color: #E0A37A; }
 .ta-3 { background: linear-gradient(135deg, rgba(201,127,82,0.5), rgba(163,97,58,0.4)); color: #F5C89A; }
 .ta-4 { background: linear-gradient(135deg, rgba(111,29,27,0.7), rgba(201,127,82,0.3)); color: var(--copper); }
+.ta-5 { background: linear-gradient(135deg, rgba(163,58,58,0.5), rgba(201,127,82,0.4)); color: #F5C89A; }
 
 .team-info { margin-bottom: 14px; }
 .team-name {
