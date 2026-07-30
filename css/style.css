@@ -691,6 +691,35 @@ body {
 .about-card h3 { font-family: var(--font-head); font-size: 1rem; font-weight: 600; color: var(--text-1); margin-bottom: 8px; }
 .about-card p  { font-size: 0.85rem; color: var(--text-3); line-height: 1.7; }
 
+/* About Section Founders Image Wrapper */
+.about-image-wrapper {
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid rgba(201, 127, 82, 0.22);
+  background: rgba(11, 11, 11, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 50px rgba(111, 29, 27, 0.1);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  aspect-ratio: 4 / 3;
+}
+.about-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.about-image-wrapper:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 127, 82, 0.45);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.75), 0 0 60px rgba(201, 127, 82, 0.2);
+}
+.about-image-wrapper:hover img {
+  transform: scale(1.04);
+}
+
 /* Stats bar */
 /* Removed obsolete About Stats classes to favor Hero classes for symmetry */
 /* ============================================================
@@ -1041,7 +1070,12 @@ body {
 }
 .sb-item.active { background: rgba(201,127,82,0.2); color: var(--copper-light); }
 
-.mockup-content { flex: 1; padding: 14px; }
+.mockup-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 14px;
+}
 .mockup-row {
   display: flex;
   gap: 10px;
@@ -1061,8 +1095,24 @@ body {
 .kpi-val.green  { color: var(--green); }
 .kpi-lbl { font-size: 0.58rem; color: var(--text-3); margin-top: 2px; }
 
-.mockup-chart-area { display: flex; align-items: flex-end; gap: 4px; padding: 4px 0; }
-.chart-bar-group { display: flex; align-items: flex-end; gap: 4px; flex: 1; height: 60px; }
+.mockup-chart-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 4px 0;
+  flex: 1;
+  min-height: 60px;
+  position: relative;
+  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 100% 25px;
+}
+.chart-bar-group {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  flex: 1;
+  height: 100%;
+}
 .chart-bar {
   flex: 1;
   background: rgba(201,127,82,0.2);
@@ -1071,6 +1121,13 @@ body {
   transition: background 0.3s;
 }
 .chart-bar.active { background: rgba(201,127,82,0.6); border-top-color: var(--copper-light); }
+
+/* OQfy mockup custom height to balance OQgen card height */
+@media (min-width: 901px) {
+  .oqfy-mockup .mockup-body {
+    height: 380px;
+  }
+}
 
 /* OQgen mockup */
 .oqgen-body { flex-direction: column; height: auto; padding: 14px; gap: 12px; }
