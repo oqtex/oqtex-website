@@ -35,19 +35,29 @@ function initNavbar() {
     });
   });
 
-  // Active link on scroll
+  // Active link on scroll (Scrollspy)
   const sections = $$('section[id]');
   const navLinks = $$('.nav-link');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        const active = navLinks.find(l => l.getAttribute('href') === `#${e.target.id}`);
-        if (active) active.classList.add('active');
+
+  function updateActiveLink() {
+    let activeId = "";
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      // If the section top is above the 200px mark from viewport top
+      if (rect.top <= 200) {
+        activeId = section.id;
       }
     });
-  }, { threshold: 0.4 });
-  sections.forEach(s => observer.observe(s));
+
+    if (activeId) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${activeId}`);
+      });
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink(); // Initial check
 }
 
 /* ── NEURAL NETWORK CANVAS (HERO) ───────────────────────────── */
@@ -370,19 +380,39 @@ function initContactForm() {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     const originalHTML = btn.innerHTML;
+    const data = new FormData(form);
+    const interest = (data.get('interest') || '').toString().trim();
 
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Sending...</span>';
     btn.disabled = true;
 
-    // Simulate sending (replace with actual API call)
-    await new Promise(r => setTimeout(r, 1500));
+    data.set('_subject', `OQTEX Website Inquiry${interest ? ` - ${interest}` : ''}`);
 
-    // Show success
-    btn.innerHTML = originalHTML;
-    btn.disabled = false;
-    form.reset();
-    success.style.display = 'flex';
-    setTimeout(() => { success.style.display = 'none'; }, 5000);
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      btn.innerHTML = originalHTML;
+      btn.disabled = false;
+      form.reset();
+
+      if (success) {
+        success.style.display = 'flex';
+        setTimeout(() => { success.style.display = 'none'; }, 5000);
+      }
+    } catch (error) {
+      btn.innerHTML = '<i class="fas fa-circle-exclamation"></i><span>Try Again</span>';
+      btn.disabled = false;
+    }
   });
 }
 
@@ -552,23 +582,6 @@ function initOqmegaRings() {
 }
 
 /* ── NAV LINK ACTIVE STYLE ──────────────────────────────────── */
-function addNavActiveStyle() {
-  const style = document.createElement('style');
-  style.textContent = `
-    .nav-link.active {
-      color: var(--copper-light) !important;
-      background: rgba(201,127,82,0.1) !important;
-    }
-    .feat-item {
-      transition: color 0.25s ease;
-    }
-    .feat-item i {
-      transition: transform 0.25s ease;
-    }
-  `;
-  document.head.appendChild(style);
-}
-
 /* ── MOBILE TOUCH PARALLAX FALLBACK ────────────────────────── */
 function initMobileOptimize() {
   if (window.matchMedia('(max-width: 768px)').matches) {
@@ -722,24 +735,6 @@ function initWhyCardStagger() {
 }
 
 /* ── ABOUT STATS BAR HOVER ──────────────────────────────────── */
-function initAboutStatsHover() {
-  $$('.astat').forEach(stat => {
-    stat.addEventListener('mouseenter', () => {
-      const num = stat.querySelector('.astat-num');
-      if (num) num.style.transform = 'scale(1.1)';
-    });
-    stat.addEventListener('mouseleave', () => {
-      const num = stat.querySelector('.astat-num');
-      if (num) num.style.transform = 'scale(1)';
-    });
-  });
-
-  // Add transition style
-  const style = document.createElement('style');
-  style.textContent = `.astat-num { transition: transform 0.3s ease; display: inline-block; }`;
-  document.head.appendChild(style);
-}
-
 /* ── VISION QUOTE TYPING ────────────────────────────────────── */
 function initVisionQuote() {
   const quote = $('blockquote');
@@ -781,11 +776,101 @@ function initGlassBorderPulse() {
   document.head.appendChild(style);
 }
 
+/* ── NEWS CAROUSEL ───────────────────────────────────────────── */
+function initNewsCarousel() {
+  const carousel = $('#newsCarousel');
+  if (!carousel) return;
+
+  const track = $('.news-track', carousel);
+  const slides = $$('.news-slide', carousel);
+  const dots = $$('.news-dot', carousel);
+  const prevBtn = $('.news-nav-btn.prev', carousel);
+  const nextBtn = $('.news-nav-btn.next', carousel);
+  let current = 0;
+
+  function updateCarousel() {
+    if (!track || !slides.length) return;
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === current);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === current);
+      dot.setAttribute('aria-selected', index === current ? 'true' : 'false');
+    });
+  }
+
+  prevBtn?.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    updateCarousel();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      current = index;
+      updateCarousel();
+    });
+  });
+
+  updateCarousel();
+}
+
+/* ── NEWS GALLERIES ─────────────────────────────────────────── */
+function initNewsGalleries() {
+  $$('.news-gallery').forEach(gallery => {
+    const track = $('.news-gallery-track', gallery);
+    const slides = $$('.news-gallery-slide', gallery);
+    const dots = $$('.news-gallery-dot', gallery);
+    const prevBtn = $('.news-gallery-btn.prev', gallery);
+    const nextBtn = $('.news-gallery-btn.next', gallery);
+    let current = 0;
+
+    function updateGallery() {
+      if (!track || !slides.length) return;
+      track.style.transform = `translateX(-${current * 100}%)`;
+
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === current);
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === current);
+        dot.setAttribute('aria-selected', index === current ? 'true' : 'false');
+      });
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      updateGallery();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      updateGallery();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        current = index;
+        updateGallery();
+      });
+    });
+
+    updateGallery();
+  });
+}
+
 /* ── INIT ALL ───────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
   initFavicon();
-  addNavActiveStyle();
   initCinematicEntrance();
   initNavbar();
   initSmoothScroll();
@@ -808,9 +893,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductGlowFollow();
   initOqmegaRings();
   initWhyCardStagger();
-  initAboutStatsHover();
   initVisionQuote();
   initGlassBorderPulse();
+  initNewsCarousel();
+  initNewsGalleries();
   initScrollProgress();
   initHeroEntrance();
   initColorTrails();
@@ -818,6 +904,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductDeepGlow();
   initTrustBarHover();
   initFooterReveal();
+  initVideoLightbox();
 
   // Set initial nav state
   if (window.scrollY > 30) {
@@ -970,6 +1057,73 @@ function initScrollProgress() {
     const progress = docHeight > 0 ? scrollTop / docHeight : 0;
     bar.style.transform = `scaleX(${progress})`;
   }, { passive: true });
+}
+
+/* ── VIDEO LIGHTBOX MODAL ───────────────────────────────────── */
+function initVideoLightbox() {
+  const modal = $('#videoLightbox');
+  if (!modal) return;
+
+  const closeBtn = modal.querySelector('.video-lightbox-close');
+  const overlay = modal.querySelector('.video-lightbox-overlay');
+  const wrapper = modal.querySelector('.video-lightbox-wrapper');
+  const triggers = $$('[data-video-id]');
+
+  function openVideo(videoId) {
+    // Generate YouTube privacy-enhanced embed URL
+    const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`;
+    
+    // Inject iframe dynamically
+    wrapper.innerHTML = `
+      <iframe 
+        src="${embedUrl}" 
+        title="Video Player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    `;
+
+    // Show modal
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // Lock background scroll
+
+    // Focus close button for accessibility
+    closeBtn.focus();
+  }
+
+  function closeVideo() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = ''; // Restore background scroll
+    
+    // Clear iframe to stop playback immediately
+    setTimeout(() => {
+      wrapper.innerHTML = '';
+    }, 400); // Wait for transition fade out to finish
+  }
+
+  // Bind click handlers to triggers
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      const videoId = trigger.getAttribute('data-video-id');
+      if (videoId) {
+        e.preventDefault();
+        openVideo(videoId);
+      }
+    });
+  });
+
+  // Bind close events
+  closeBtn.addEventListener('click', closeVideo);
+  overlay.addEventListener('click', closeVideo);
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeVideo();
+    }
+  });
 }
 
 /* ── WINDOW EVENTS ──────────────────────────────────────────── */
